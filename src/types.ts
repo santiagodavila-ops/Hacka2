@@ -53,13 +53,16 @@ export interface PageResponse<T> {
 
 export interface Tropel {
   id: string;
-  name: string;
-  species: Species;
-  vitalState: VitalState;
-  sectorId: string;
-  sectorName?: string;
-  chaosIndex: number;
-  updatedAt: string;
+  title: string;
+  description: string;
+  riskLevel: "ALTO" | "MEDIO" | "BAJO";
+  activeAlerts: number;
+  temperature: number;
+  humidity: number;
+  visualStyles: {
+    glowColor: string;
+    accentColor: string;
+  };
 }
 
 // Checkpoint 3: paginación por cursor para el feed infinito.
