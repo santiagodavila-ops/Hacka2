@@ -7,6 +7,7 @@ import {
 } from "../hooks/usePaginatedTropels";
 import { useDebouncedValue } from "../hooks/useDebouncedValue";
 import { Spinner } from "../components/Spinner";
+import type { Tropel } from "../types";
 
 const VALID_SIZES = [10, 20, 50] as const;
 type ValidSize = (typeof VALID_SIZES)[number];
@@ -138,7 +139,7 @@ export function TropelsPage() {
             </tr>
           </thead>
           <tbody>
-            {data?.content.map((t) => (
+            {data?.content.map((t: Tropel) => (
               <tr key={t.id} className="border-t border-slate-800 hover:bg-slate-900/60">
                 <td className="px-4 py-2 text-white">{t.name}</td>
                 <td className="px-4 py-2 text-slate-300">{t.species}</td>
