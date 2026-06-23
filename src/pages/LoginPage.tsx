@@ -8,9 +8,11 @@ export function LoginPage() {
   const { status, login } = useAuth();
   const navigate = useNavigate();
 
-  const [teamCode, setTeamCode] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  // Valores por defecto desde .env (gitignorado) para agilizar las pruebas.
+  // Si no existen, los campos arrancan vacíos.
+  const [teamCode, setTeamCode] = useState(import.meta.env.VITE_DEFAULT_TEAM_CODE ?? "");
+  const [email, setEmail] = useState(import.meta.env.VITE_DEFAULT_EMAIL ?? "");
+  const [password, setPassword] = useState(import.meta.env.VITE_DEFAULT_PASSWORD ?? "");
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
