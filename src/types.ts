@@ -36,3 +36,22 @@ export interface Signal {
   status: SignalStatus;
   createdAt: string;
 }
+export interface StoryStage {
+  id: string;
+  title: string;
+  description: string;
+  riskLevel: "ALTO" | "MEDIO" | "BAJO";
+  activeAlerts: number;
+  temperature: number;
+  humidity: number;
+  visualStyles: {
+    glowColor: string;
+    accentColor: string;
+  };
+}
+
+export interface SectorStory {
+  id: string;
+  sectorName: string;
+  stages: StoryStage[];
+}
