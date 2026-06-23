@@ -15,3 +15,42 @@ body {
   background-color: #0b1120;
   color: #e2e8f0;
 }
+
+/* --------------------------------------------------------------------------
+   Checkpoint 5: Sector Story Engine
+   -------------------------------------------------------------------------- */
+
+/* Barra de progreso del scroll. Por defecto vacía (scaleX(0)); la rellena
+   o bien CSS scroll-driven (.story-progress--css) o bien el fallback JS. */
+.story-progress {
+  transform: scaleX(0);
+}
+
+@keyframes story-scrub {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+/* CSS Scroll-driven Animations: solo si el navegador lo soporta y el usuario
+   no pidió reducir movimiento. Se vincula al scroll de la raíz del documento. */
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .story-progress--css {
+      animation: story-scrub linear both;
+      animation-timeline: scroll(root block);
+    }
+  }
+}
+
+/* Respeto estricto a prefers-reduced-motion: nada de scroll suave ni de
+   animaciones de View Transitions. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}

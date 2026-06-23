@@ -6,6 +6,7 @@ import { DashboardPage } from "./pages/DashboardPage";
 import { SignalDetailPage } from "./pages/SignalDetailPage";
 import { TropelsPage } from "./pages/TropelsPage";
 import { SignalsFeedPage } from "./pages/SignalsFeedPage";
+import { SectorStoryPage } from "./pages/SectorStoryPage";
 
 function App() {
   return (
@@ -30,6 +31,9 @@ function App() {
 
           {/* Ruta hermana de A (acceso directo por URL a un detalle) */}
           <Route path="/signals/:id" element={<SignalDetailPage />} />
+
+          {/* C - Checkpoint 5: Sector Story Engine (scrollytelling) */}
+          <Route path="/sectors/:id/story" element={<SectorStoryPage />} />
         </Route>
       </Route>
 
