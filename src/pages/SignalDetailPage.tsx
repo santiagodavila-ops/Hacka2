@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { api } from "../lib/api";
 import { getErrorMessage } from "../lib/getErrorMessage";
+import { withViewTransition } from "../lib/viewTransition";
 import { Spinner } from "../components/Spinner";
 import type { Signal, SignalStatus } from "../types";
 
@@ -111,7 +112,16 @@ export function SignalDetailPage() {
             </div>
             <div>
               <dt className="text-slate-500">Sector</dt>
-              <dd className="text-slate-200">{signal.sectorId}</dd>
+              <dd className="text-slate-200">
+                <button
+                  onClick={() =>
+                    withViewTransition(() => navigate(`/sectors/${signal.sectorId}/story`))
+                  }
+                  className="text-cyan-400 underline-offset-2 hover:underline"
+                >
+                  {signal.sectorId}
+                </button>
+              </dd>
             </div>
             <div>
               <dt className="text-slate-500">Registrada</dt>
