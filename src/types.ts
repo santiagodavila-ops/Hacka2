@@ -85,6 +85,7 @@ export interface SignalFeedItem {
   createdAt: string;
 }
 
+<<<<<<< HEAD
 // ---------------------------------------------------------------------------
 // Tipos C (Checkpoint 5): Sector Story Engine.
 // GET /sectors/{id}/story devuelve una narrativa por etapas: cada etapa tiene
@@ -105,6 +106,18 @@ export interface SectorStoryStage {
   body: string;
   accent?: StoryAccent;
   metrics: SectorStoryMetric[];
+=======
+export type SignalSeverity = "LOW" | "MEDIUM" | "HIGH" | "CRITICAL";
+// ============================================================
+// Tipos CP5 - Sector Story
+// ============================================================
+export interface SectorStoryStage {
+  id: string;
+  title: string;
+  narrative: string;
+  metrics: Record<string, number | string>;
+  accent?: string;
+>>>>>>> RamaSandra
 }
 
 export interface SectorStory {
@@ -112,4 +125,8 @@ export interface SectorStory {
   sectorName: string;
   intro: string;
   stages: SectorStoryStage[];
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> RamaSandra

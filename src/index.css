@@ -16,6 +16,7 @@ body {
   color: #e2e8f0;
 }
 
+<<<<<<< HEAD
 /* --------------------------------------------------------------------------
    Checkpoint 5: Sector Story Engine
    -------------------------------------------------------------------------- */
@@ -54,3 +55,41 @@ body {
     animation: none !important;
   }
 }
+=======
+/* CP5 - Scroll-driven Animations con fallback nativo */
+@supports (animation-timeline: scroll()) {
+  .story-stage {
+    animation: stageReveal linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+  }
+}
+
+@keyframes stageReveal {
+  from {
+    opacity: 0.3;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Respeto a prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .story-stage {
+    animation: none !important;
+    transition: none !important;
+  }
+  * {
+    scroll-behavior: auto !important;
+  }
+}
+
+/* View Transition API styling */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.4s;
+}
+>>>>>>> RamaSandra

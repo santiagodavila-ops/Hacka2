@@ -17,6 +17,8 @@ function App() {
       {/* Privadas: solo entran con sesión válida */}
       <Route element={<ProtectedRoute />}>
         <Route element={<Layout />}>
+        {/* C - Checkpoint 5: Sector Story Engine */}
+          <Route path="/sectors/:id/story" element={<SectorStoryPage />} />
           <Route path="/dashboard" element={<DashboardPage />} />
 
           {/* B - Checkpoint 2: Atlas de Tropeles */}
