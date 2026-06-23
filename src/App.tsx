@@ -6,6 +6,7 @@ import { DashboardPage } from "./pages/DashboardPage";
 import { SignalDetailPage } from "./pages/SignalDetailPage";
 import { TropelsPage } from "./pages/TropelsPage";
 import { SignalsFeedPage } from "./pages/SignalsFeedPage";
+import { SectorStoryPage } from "./pages/SectorStoryPage";
 
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
       {/* Privadas: solo entran con sesión válida */}
       <Route element={<ProtectedRoute />}>
         <Route element={<Layout />}>
+        {/* C - Checkpoint 5: Sector Story Engine */}
+          <Route path="/sectors/:id/story" element={<SectorStoryPage />} />
           <Route path="/dashboard" element={<DashboardPage />} />
 
           {/* B - Checkpoint 2: Atlas de Tropeles */}

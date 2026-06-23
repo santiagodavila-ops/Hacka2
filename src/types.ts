@@ -86,3 +86,20 @@ export interface SignalFeedItem {
 }
 
 export type SignalSeverity = "LOW" | "MEDIUM" | "HIGH" | "CRITICAL";
+// ============================================================
+// Tipos CP5 - Sector Story
+// ============================================================
+export interface SectorStoryStage {
+  id: string;
+  title: string;
+  narrative: string;
+  metrics: Record<string, number | string>;
+  accent?: string;
+}
+
+export interface SectorStory {
+  sectorId: string;
+  sectorName: string;
+  intro: string;
+  stages: SectorStoryStage[];
+}

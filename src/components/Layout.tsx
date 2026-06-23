@@ -47,6 +47,14 @@ export function Layout() {
               >
                 Señales
               </NavLink>
+              <NavLink
+                to="/sectors/1/story"
+                className={({ isActive }) =>
+                  `${navItem} ${isActive ? "bg-slate-800 text-white" : "text-slate-400 hover:text-white"}`
+                }
+              >
+                Sectores
+              </NavLink>
             </nav>
           </div>
           <div className="flex items-center gap-3">
