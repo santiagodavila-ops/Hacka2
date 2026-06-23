@@ -4,6 +4,8 @@ import { Layout } from "./components/Layout";
 import { LoginPage } from "./pages/LoginPage";
 import { DashboardPage } from "./pages/DashboardPage";
 import { SignalDetailPage } from "./pages/SignalDetailPage";
+import { TropelsPage } from "./pages/TropelsPage";
+import { SignalsFeedPage } from "./pages/SignalsFeedPage";
 
 function App() {
   return (
@@ -15,13 +17,19 @@ function App() {
       <Route element={<ProtectedRoute />}>
         <Route element={<Layout />}>
           <Route path="/dashboard" element={<DashboardPage />} />
-          <Route path="/signals/:id" element={<SignalDetailPage />} />
 
-          {/* === AQUÍ van las rutas de tus compañeros (B y C) ===
-              <Route path="/tropels" element={<TropelsPage />} />
-              <Route path="/signals/feed" element={<SignalsFeedPage />} />
-              <Route path="/sectors/:id/story" element={<SectorStoryPage />} />
-          */}
+          {/* B - Checkpoint 2: Atlas de Tropeles */}
+          <Route path="/tropels" element={<TropelsPage />} />
+
+          {/* B - Checkpoint 3: Feed de Señales con detalle anidado */}
+          {/* La ruta anidada hace que SignalsFeedPage NO se desmonte al abrir el detalle,
+              preservando el scroll y los items ya cargados. */}
+          <Route path="/signals/feed" element={<SignalsFeedPage />}>
+            <Route path=":id" element={<SignalDetailPage />} />
+          </Route>
+
+          {/* Ruta hermana de A (acceso directo por URL a un detalle) */}
+          <Route path="/signals/:id" element={<SignalDetailPage />} />
         </Route>
       </Route>
 
